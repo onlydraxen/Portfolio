@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: black;
+  height: 100vh;
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2.5vh 22vh;
+  padding: 3vh 5vh;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.left-side {
+  display: flex;
+  align-items: center;
+  gap: 2vh;
+  font-size: 26px;
+  font-weight: bold;
+  color: transparent;
+  background: linear-gradient(to right, white, rgb(200, 200, 200), rgb(180, 180, 180)); 
+  background-clip: text;
+  -webkit-background-clip: text;
+  transition: all 0.3s ease-in-out;
+}
+
+.left-side span {
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 10px 15px;
+  font-size: 22px;
+  color: white;
+  border-radius: 50%;
+  transition: all 0.3s ease-in-out;
+  opacity: 0.8;
+}
+
+.left-side span:hover {
+  transform: scale(1.1);
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
+  opacity: 1;
+}
+
+.middle-side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4vw;
+  font-size: 20px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: transparent;
+  background: linear-gradient(to right, white, rgb(200, 200, 200), rgb(180, 180, 180)); 
+  background-clip: text;
+  -webkit-background-clip: text; 
+}
+
+.middle-side .link {
+  font-size: 15px;
+  opacity: 0.5;
+  padding: 1vh 1vw;
+  cursor: pointer;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.middle-side .link::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.middle-side .link:hover {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+.middle-side .link:hover::before {
+  width: 100%;
+}
+
+.right-side {
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 30px;
+  padding: 12px 25px;
+  font-size: 18px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 1vh;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.2));
+  opacity: 0.8;
+}
+
+.right-side:hover {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.3));
+  opacity: 1;
+}
+
+.right-side span {
+  font-size: 24px;
+  transition: transform 0.3s ease;
+}
