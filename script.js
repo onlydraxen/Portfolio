@@ -1,4 +1,3 @@
-// Smooth Scroll
 document.querySelectorAll('.link').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -16,7 +15,6 @@ document.querySelectorAll('.link').forEach(anchor => {
     }
   });
 });
-
 
 const home = document.querySelector('.home');
 const count = 5;
@@ -46,30 +44,35 @@ if (home) {
   console.error("Element with class 'home' not found.");
 }
 
-// Sign-in popup functionality
 const loginBtn = document.querySelector('#login');
 const popup = document.querySelector('.popup');
 const closeBtn = document.querySelector('.popup .close-btn');
-const blurOverlay = document.querySelector('.blur-overlay');  
+const blurOverlay = document.querySelector('.blur-overlay');
 const signInForm = document.querySelector('.sign-in-form');
 const signUpForm = document.querySelector('.sign-up-form');
 const switchToSignup = document.querySelector('.switch-to-signup');
 const switchToSignin = document.querySelector('.switch-to-signin');
 
+let lastScrollPosition = 0;
 
 loginBtn.addEventListener('click', () => {
+  lastScrollPosition = window.scrollY;
   popup.classList.add('active');
   blurOverlay.classList.add('active');
-  document.body.style.overflow = 'hidden'; 
+  
+  document.documentElement.style.overflow = 'hidden';
+  document.body.style.overflow = 'hidden';
 });
 
-// Close popup
 const closePopup = () => {
   popup.classList.remove('active');
   blurOverlay.classList.remove('active');
-  document.body.style.overflow = 'auto'; 
   
- 
+  document.documentElement.style.overflow = '';
+  document.body.style.overflow = '';
+  
+  window.scrollTo(0, lastScrollPosition);
+
   setTimeout(() => {
     signInForm.style.display = 'block';
     signUpForm.style.display = 'none';
@@ -81,22 +84,14 @@ const closePopup = () => {
 closeBtn.addEventListener('click', closePopup);
 blurOverlay.addEventListener('click', closePopup);
 
-
-
 const switchForms = (toShow, toHide) => {
-
   toHide.classList.add('slide-out');
   
   setTimeout(() => {
     toHide.style.display = 'none';
     toHide.classList.remove('slide-out');
-    
-
-
     toShow.style.display = 'block';
     toShow.classList.add('slide-in');
-    
-
 
     setTimeout(() => {
       toShow.classList.remove('slide-in');
@@ -114,8 +109,6 @@ switchToSignin.addEventListener('click', (e) => {
   switchForms(signInForm, signUpForm);
 });
 
-
-
 const handleSubmit = (e, formType) => {
   e.preventDefault();
   const form = e.target;
@@ -123,8 +116,6 @@ const handleSubmit = (e, formType) => {
   const data = Object.fromEntries(formData.entries());
   
   console.log(`${formType} form submitted:`, data);
-  
-
 
   closePopup();
   form.reset();
@@ -133,14 +124,11 @@ const handleSubmit = (e, formType) => {
 signInForm.addEventListener('submit', (e) => handleSubmit(e, 'Sign In'));
 signUpForm.addEventListener('submit', (e) => handleSubmit(e, 'Sign Up'));
 
-
 document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && popup.classList.contains('active')) {
     closePopup();
   }
 });
-
-
 
 const inputs = document.querySelectorAll('.form-element input');
 
@@ -155,8 +143,6 @@ inputs.forEach(input => {
     }
   });
 });
-
-
 
 const buttons = document.querySelectorAll('.form-element button');
 
