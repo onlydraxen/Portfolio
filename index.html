@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/@mdi/font@7.2.96/css/materialdesignicons.min.css" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <title>Badr Bensalem | Portfolio</title>
@@ -12,12 +12,9 @@
 <body>
   <div class="blur-overlay"></div>
   <div class="navigation">
-
     <div class="left-side">
-      <span class="mdi mdi-xml"></span>
-      Badr Bensalem
+      <span class="mdi mdi-xml"></span> Badr Bensalem
     </div>
-
     <div class="middle-side">
       <div class="links">
         <a href="#about" class="link">About</a>
@@ -26,67 +23,49 @@
         <a href="#contact" class="link">Contact</a>
       </div>
     </div>
-
     <div class="right-side">
-      <button class="sign-in-btn" id="login"><span class="mdi mdi-login"></span> Sign In</button>
-    </div>
-
-  </div>
-
-  <!-- Popup -->
-  <div class="popup">
-    <div class="close-btn">&times;</div>
-    
-    <!-- Sign In Form -->
-    <div class="form sign-in-form">
-      <h2>Welcome Back</h2>
-      <div class="form-element">
-        <label for="email">Email</label>
-        <input type="email" id="email" placeholder="Enter your email" required>
-      </div>
-      <div class="form-element">
-        <label for="pass">Password</label>
-        <input type="password" id="pass" placeholder="Enter your password" required>
-      </div>
-      <div class="form-element">
-        <button type="submit">Sign In</button>
-      </div>
-      <div class="form-element switch-form">
-        <p>Don't have an account? <a href="#" class="switch-to-signup">Create one</a></p>
-      </div>
-    </div>
-    
-    <!-- Sign Up Form -->
-    <div class="form sign-up-form" style="display: none;">
-      <h2>Create Account</h2>
-      <div class="form-element">
-        <label for="signup-name">Full Name</label>
-        <input type="text" id="signup-name" placeholder="Enter your full name" required>
-      </div>
-      <div class="form-element">
-        <label for="signup-email">Email</label>
-        <input type="email" id="signup-email" placeholder="Enter your email" required>
-      </div>
-      <div class="form-element">
-        <label for="signup-pass">Password</label>
-        <input type="password" id="signup-pass" placeholder="Create a password" required>
-      </div>
-      <div class="form-element">
-        <button type="submit">Sign Up</button>
-      </div>
-      <div class="form-element switch-form">
-        <p>Already have an account? <a href="#" class="switch-to-signin">Sign in</a></p>
-      </div>
+      <button class="Button-visit">
+        <span class="mdi mdi-open-in-new"></span> <a href="https://www.fiverr.com/c0decanvas" target="_blank">Our Fiverr</a>
+      </button>
     </div>
   </div>
 
 
 
 
+    <!--Home Page-->
 
-  
-  <div class="home"></div>
+    <div class="home">
+      <h2 class="salut">Hi, I'm</h2>
+      <h1 class="name">Badr Bensalem</h1>
+      
+      <!-- The typing effect will be here -->
+      <div class="centered-container">
+        <h1 class="dynamic-text"></h1>
+        <span class="cursor">|</span>
+      </div>
+    
+      <p class="desc">Crafting seamless web experiences with a focus on elegance and functionality. Passionate about front-end technologies and delivering pixel-perfect, user-friendly designs.</p>
 
-  <script src="script.js"></script>
+
+      <div class="links-container">
+        <a href="#" class="project-view">
+          View Projects <span class="mdi mdi-chevron-right"></span>
+        </a>
+        <a href="#" class="contact-me">
+          Contact Me
+        </a>
+      </div>
+      
+
+      <div class="scrool-down">
+        <span class="mdi mdi-chevron-down"></span>
+      </div>
+
+    </div>
+    
+
+
+  <script type="module" src="script.js"></script>
 </body>
 </html>
