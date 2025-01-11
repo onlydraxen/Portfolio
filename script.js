@@ -44,118 +44,49 @@ if (home) {
   console.error("Element with class 'home' not found.");
 }
 
-const loginBtn = document.querySelector('#login');
-const popup = document.querySelector('.popup');
-const closeBtn = document.querySelector('.popup .close-btn');
-const blurOverlay = document.querySelector('.blur-overlay');
-const signInForm = document.querySelector('.sign-in-form');
-const signUpForm = document.querySelector('.sign-up-form');
-const switchToSignup = document.querySelector('.switch-to-signup');
-const switchToSignin = document.querySelector('.switch-to-signin');
 
-let lastScrollPosition = 0;
 
-loginBtn.addEventListener('click', () => {
-  lastScrollPosition = window.scrollY;
-  popup.classList.add('active');
-  blurOverlay.classList.add('active');
-  
-  document.documentElement.style.overflow = 'hidden';
-  document.body.style.overflow = 'hidden';
-});
 
-const closePopup = () => {
-  popup.classList.remove('active');
-  blurOverlay.classList.remove('active');
-  
-  document.documentElement.style.overflow = '';
-  document.body.style.overflow = '';
-  
-  window.scrollTo(0, lastScrollPosition);
 
-  setTimeout(() => {
-    signInForm.style.display = 'block';
-    signUpForm.style.display = 'none';
-    signInForm.classList.remove('slide-out', 'slide-in');
-    signUpForm.classList.remove('slide-out', 'slide-in');
-  }, 400);
-};
+document.addEventListener("DOMContentLoaded", function () {
+  const dynamicText = document.querySelector(".dynamic-text");
+  const cursor = document.querySelector(".cursor");
 
-closeBtn.addEventListener('click', closePopup);
-blurOverlay.addEventListener('click', closePopup);
+  const texts = [
+    "Front-End Developer",
+    "AI Developer",
+    "Creative Developer",
+    "UI/UX Desginer",
+  ];
 
-const switchForms = (toShow, toHide) => {
-  toHide.classList.add('slide-out');
-  
-  setTimeout(() => {
-    toHide.style.display = 'none';
-    toHide.classList.remove('slide-out');
-    toShow.style.display = 'block';
-    toShow.classList.add('slide-in');
+  let index = 0;
+  let textIndex = 0;
+  let currentText = texts[index];
+  let typingSpeed = 150;
+  let delayBetweenTexts = 1000;
+  let deleteSpeed = 60;
 
-    setTimeout(() => {
-      toShow.classList.remove('slide-in');
-    }, 400);
-  }, 300);
-};
-
-switchToSignup.addEventListener('click', (e) => {
-  e.preventDefault();
-  switchForms(signUpForm, signInForm);
-});
-
-switchToSignin.addEventListener('click', (e) => {
-  e.preventDefault();
-  switchForms(signInForm, signUpForm);
-});
-
-const handleSubmit = (e, formType) => {
-  e.preventDefault();
-  const form = e.target;
-  const formData = new FormData(form);
-  const data = Object.fromEntries(formData.entries());
-  
-  console.log(`${formType} form submitted:`, data);
-
-  closePopup();
-  form.reset();
-};
-
-signInForm.addEventListener('submit', (e) => handleSubmit(e, 'Sign In'));
-signUpForm.addEventListener('submit', (e) => handleSubmit(e, 'Sign Up'));
-
-document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && popup.classList.contains('active')) {
-    closePopup();
-  }
-});
-
-const inputs = document.querySelectorAll('.form-element input');
-
-inputs.forEach(input => {
-  input.addEventListener('focus', () => {
-    input.parentElement.classList.add('focused');
-  });
-  
-  input.addEventListener('blur', () => {
-    if (!input.value) {
-      input.parentElement.classList.remove('focused');
+  function typeText() {
+    if (textIndex < currentText.length) {
+      dynamicText.textContent += currentText.charAt(textIndex);
+      textIndex++;
+      setTimeout(typeText, typingSpeed);
+    } else {
+      setTimeout(deleteText, delayBetweenTexts);
     }
-  });
-});
+  }
 
-const buttons = document.querySelectorAll('.form-element button');
+  function deleteText() {
+    if (textIndex > 0) {
+      dynamicText.textContent = currentText.substring(0, textIndex - 1);
+      textIndex--;
+      setTimeout(deleteText, deleteSpeed);
+    } else {
+      index = (index + 1) % texts.length;
+      currentText = texts[index];
+      setTimeout(typeText, typingSpeed);
+    }
+  }
 
-buttons.forEach(button => {
-  button.addEventListener('mousedown', () => {
-    button.style.transform = 'scale(0.98)';
-  });
-  
-  button.addEventListener('mouseup', () => {
-    button.style.transform = '';
-  });
-  
-  button.addEventListener('mouseleave', () => {
-    button.style.transform = '';
-  });
+  typeText();
 });
