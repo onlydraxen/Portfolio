@@ -1,5 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+
+:root {
+  --color-1: #0f1016;
+  --text-color: #f0f0f0;
+  --accent-color: #006aff;
+}
 * {
   margin: 0;
   padding: 0;
@@ -12,7 +18,6 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: hidden;
 }
 
 
@@ -21,27 +26,37 @@ body {
   background-color: black;
 }
 
+
+
+
 .navigation {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 3vh 25vh;
-  padding: 1vh 4vh;
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.05);
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
+  padding: 1vh 3vw;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.1);
+  position: fixed;
+  top: 2vh;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  z-index: 10;
 }
+
+
 
 .left-side {
   display: flex;
   align-items: center;
-  gap: 2vh;
-  font-size: 26px;
+  gap: 0.5vw;
+  font-size: 24px;
   font-weight: bold;
   color: transparent;
-  background: linear-gradient(to right, white, rgb(200, 200, 200), rgb(180, 180, 180)); 
+  background: linear-gradient(to right, white, rgb(200, 200, 200), rgb(180, 180, 180));
   background-clip: text;
   -webkit-background-clip: text;
   transition: all 0.3s ease-in-out;
@@ -68,21 +83,20 @@ body {
 .middle-side {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 4vw;
-  font-size: 20px;
+  gap: 1vw;
+  font-size: 18px;
   font-weight: 500;
   text-transform: uppercase;
   color: transparent;
-  background: linear-gradient(to right, white, rgb(200, 200, 200), rgb(180, 180, 180)); 
+  background: linear-gradient(to right, white, rgb(200, 200, 200), rgb(180, 180, 180));
   background-clip: text;
-  -webkit-background-clip: text; 
+  -webkit-background-clip: text;
 }
 
 .middle-side .link {
-  font-size: 15px;
-  opacity: 0.5;
-  padding: 1vh 1vw;
+  font-size: 16px;
+  opacity: 0.7;
+  padding: 1vh 2vw;
   cursor: pointer;
   color: white;
   text-decoration: none;
@@ -109,16 +123,16 @@ body {
 }
 
 .middle-side .link:hover::before {
-  width: 100%;
+  width: 65%;
 }
 
 .right-side {
   border-radius: 30px;
-  padding: 12px 25px;
+  padding: 12px 20px;
   font-size: 18px;
   display: flex;
   align-items: center;
-  gap: 1vh;
+  gap: 2vh;
   color: white;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -130,19 +144,11 @@ body {
   opacity: 1;
 }
 
-.right-side {
-  display: flex;
-  align-items: center;
-  gap: 1vh;
-  color: white;
-  transition: all 0.3s ease-in-out;
-}
-
-.Button-visit{
+.Button-visit {
   border: 2px solid rgba(255, 255, 255, 0.2);
   background-color: rgba(255, 255, 255, 0.1);
   border-radius: 30px;
-  padding: 12px 25px;
+  padding: 12px 20px;
   font-size: 18px;
   font-weight: 500;
   color: white;
@@ -171,6 +177,185 @@ body {
 
 
 
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: var(--text-color);
+}
+
+@media screen and (max-width: 850px) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .middle-side {
+    position: fixed;
+    right: -100%;
+    top: 70px;
+    gap: 0;
+    flex-direction: column;
+    background-color: rgba(15, 16, 22, 0.95);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    padding: 20px 0;
+  }
+
+  .middle-side.active {
+    right: 0;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .navigation {
+    width: 95%;
+    padding: 1vh 5vw;
+  }
+
+  .right-side {
+    display: none;
+  }
+
+  .middle-side.active .right-side {
+    display: block;
+    margin-top: 20px;
+  }
+
+  .Button-visit {
+    margin: 20px auto;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .hamburger {
+    display: block;
+  }
+
+  .middle-side {
+    position: fixed;
+    top: 0;
+    right: -150%;
+    height: 100vh;
+    width: 300px;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 30px 60px 30px 30px;
+    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .middle-side.active {
+    right: 0;
+  }
+
+  .links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;
+  }
+
+  .link {
+    font-size: 18px;
+    position: relative;
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .link:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(to right, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+  }
+
+  .link:hover::after {
+    width: 80%;
+  }
+
+  .right-side {
+    display: none;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 9;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .navigation {
+    width: 92%;
+    padding: 1vh 4vw;
+  }
+
+  .left-side {
+    font-size: 20px;
+  }
+
+  .left-side .mdi {
+    font-size: 15px;
+    margin-right: 0.5vh;
+  }
+
+  .middle-side {
+    width: 100%;
+  }
+}
+
 
 
 
@@ -180,11 +365,14 @@ body {
 /* Home */
 
 .home {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100vh; 
   background-color: #000000;
   position: relative;
+  overflow: hidden;
 }
+
+
 
 .lighting {
   position: absolute; 
@@ -223,7 +411,7 @@ body {
 
 .salut {
   text-align: center;
-  margin-top: 7vh;
+  margin-top: 23vh;
   margin-bottom: 0;
   font-size: 11vh;
   display: block;
@@ -359,14 +547,16 @@ body {
 
 
 .scrool-down {
-  color: white;
-  position: fixed;
-  bottom: 20px;
+  color: white; 
+  position: absolute;
+  bottom: 1vh; 
   left: 50%;
   transform: translateX(-50%);
   animation: bounce 1.5s infinite;
-  font-size: 2rem; /* You can adjust the size here */
+  font-size: 2rem;
 }
+
+
 
 @keyframes bounce {
   0% {
@@ -381,3 +571,6 @@ body {
 }
 
 
+
+
+  /* About Me */
