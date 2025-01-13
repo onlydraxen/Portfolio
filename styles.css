@@ -34,13 +34,13 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1vh 3vw;
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(8px);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 10px rgba(255, 255, 255, 0.15);
   border-radius: 50px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   position: fixed;
-  top: 2vh;
+  top: 3vh;
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
@@ -264,7 +264,7 @@ body {
     height: 100vh;
     width: 300px;
     background: rgba(0, 0, 0, 0.95);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(30px);
     padding: 30px 60px 30px 30px;
     transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.3);
@@ -323,7 +323,7 @@ body {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
+    backdrop-filter: blur(7px);
     opacity: 0;
     visibility: hidden;
     transition: all 0.3s ease;
@@ -527,7 +527,7 @@ body {
 }
 
 .project-view:hover span {
-  transform: translateX(10px);
+  transform: translateX(8px);
 }
 
 
@@ -571,6 +571,41 @@ body {
 }
 
 
+
+@media  screen and (max-width:480px) {
+  .salut {
+    margin-top: 16vh;
+    font-size: 9vh;
+  }
+
+  .name {
+    font-size: 9vh;
+  }
+
+  .dynamic-text, .cursor{
+    margin: 0;
+    font-size: 3vh;
+    margin-right: 3px;
+  }
+
+
+  .desc {
+    font-size: 2vh;
+    font-weight: 350;
+  }
+
+  .links-container a {
+    margin-top: 0.5vh;
+  }
+
+  .links-container span {
+    margin-right: 0.5vh;
+  }
+
+  .scrool-down {
+    font-size: 4vh;
+  }
+}
 
 
   /* About Me */
