@@ -71,9 +71,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const dynamicText = document.querySelector(".dynamic-text");
   if (dynamicText) {
     const words = [
-      "Full Stack Developer",
+      "Front-end Developer",
       "Web Developer",
-      "Software Engineer",
       "UI/UX Designer"
     ];
     
