@@ -43,6 +43,8 @@
     </div>
   </div>
 
+  <div class="nav-overlay"></div>
+
 
 
 
@@ -54,8 +56,10 @@
       
 
       <div class="centered-container">
-        <h1 class="dynamic-text"></h1>
-        <span class="cursor">|</span>
+        <div class="typing-wrapper">
+          <span class="dynamic-text"></span>
+          <span class="cursor"></span>
+        </div>
       </div>
     
       <p class="desc">Crafting seamless web experiences with a focus on elegance and functionality. Passionate about front-end technologies and delivering pixel-perfect, user-friendly designs.</p>
@@ -74,31 +78,90 @@
       <div class="scrool-down">
         <span class="mdi mdi-chevron-down"></span>
       </div>
-
+      
     </div>
 
 
 
-    <!--About Me-->
-    <div id="about">
-      <h2 class="section-title">About Me</h2>
-      <div class="about-content">
-        <img src="https://via.placeholder.com/300" alt="Your Profile Picture" class="about-img">
-        <div class="about-text">
-          <p>
-            Hi, I'm Badr, a front-end developer and designer passionate about creating stunning and user-friendly digital experiences. I specialize in crafting responsive websites and intuitive interfaces.
-          </p>
-          <p>
-            With a strong background in HTML, CSS, JavaScript, and design tools, I turn ideas into reality. Let's build something amazing together!
-          </p>
+
+
+
+
+<!-- About Me -->
+<section id="about">
+  <div class="glass-bg glass-1"></div>
+  <div class="glass-bg glass-2"></div>
+  
+  <div class="about-container">
+    <div class="about-header">
+      <h3 class="about-subtitle">About Me</h3>
+      <h2 class="about-title">Crafting Digital Experiences</h2>
+    </div>
+
+    <div class="about-content">
+      <div class="profile-container">
+        <div class="profile-frame">
+          <img src="imgs/renedescartes.avif" alt="Badr Bensalem" class="profile-image">
+          <div class="profile-overlay">
+            <div class="social-links">
+              <a href="https://github.com/onlydraxen" class="social-link" target="_blank"><i class="mdi mdi-github"></i></a>
+              <a href="#" class="social-link" target="_blank"><i class="mdi mdi-linkedin"></i></a>
+              <a href="#" class="social-link" target="_blank"><i class="mdi mdi-twitter"></i></a>
+              <a href="https://www.instagram.com/bvdr009/" class="social-link" target="_blank"><i class="mdi mdi-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-info">
+        <p class="info-text">
+          Hello! I'm <span class="highlight">Badr Bensalem</span>, a passionate Front-end Developer dedicated to creating exceptional digital experiences. With a keen eye for design and a love for clean code, I transform ideas into elegant, user-centric solutions.
+        </p>
+        
+        <div class="skills-grid">
+          <div class="skill-card">
+            <i class="mdi mdi-palette-swatch skill-icon"></i>
+            <h3 class="skill-title">UI/UX Design</h3>
+            <p class="skill-description">Creating intuitive and beautiful user interfaces with a focus on user experience.</p>
+          </div>
+          <div class="skill-card">
+            <i class="mdi mdi-code-tags skill-icon"></i>
+            <h3 class="skill-title">Web Development</h3>
+            <p class="skill-description">Building responsive and performant websites using modern technologies.</p>
+          </div>
+          <div class="skill-card">
+            <i class="mdi mdi-responsive skill-icon"></i>
+            <h3 class="skill-title">Responsive Design</h3>
+            <p class="skill-description">Ensuring perfect display across all devices and screen sizes.</p>
+          </div>
+          <div class="skill-card">
+            <i class="mdi mdi-rocket-launch skill-icon"></i>
+            <h3 class="skill-title">Performance</h3>
+            <p class="skill-description">Optimizing for speed and efficiency without compromising quality.</p>
+          </div>
+        </div>
+
+        <div class="stats-container">
+          <div class="stat-card">
+            <div class="stat-number" data-target="20">+0</div>
+            <div class="stat-label">Projects Completed</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="15">+0</div>
+            <div class="stat-label">Happy Clients</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" data-target="1">+0</div>
+            <div class="stat-label">Years Experience</div>
+          </div>
         </div>
       </div>
     </div>
-    
-    
+  </div>
+</section>
 
 
-       
-  <script src="./script.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>
