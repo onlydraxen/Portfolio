@@ -45,7 +45,7 @@ if (home) {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Mobile Menu Toggle
+  
   const hamburger = document.querySelector('.hamburger');
   const middleSide = document.querySelector('.middle-side');
   const navLinks = document.querySelectorAll('.link');
@@ -72,14 +72,17 @@ document.addEventListener("DOMContentLoaded", function () {
   if (dynamicText) {
     const words = [
       "Front-end Developer",
-      "Web Developer",
-      "UI/UX Designer"
+      "Bot Developer",
+      "UI/UX Designer",
+      "Web Architect",
+      "Creative Coder"
     ];
     
     let wordIndex = 0;
     let charIndex = 0;
     let isDeleting = false;
     
+
     function typeText() {
       const currentWord = words[wordIndex];
       const currentChar = currentWord.substring(0, charIndex);
@@ -87,21 +90,20 @@ document.addEventListener("DOMContentLoaded", function () {
       dynamicText.classList.add("stop-blinking");
     
       if (!isDeleting && charIndex < currentWord.length) {
-        
         charIndex++;
-        setTimeout(typeText, 200);
+        setTimeout(typeText, Math.random() * 100 + 100);
       } else if (isDeleting && charIndex > 0) {
-        
         charIndex--;
-        setTimeout(typeText, 100);
+        setTimeout(typeText, 50);
       } else {
-       
         isDeleting = !isDeleting;
         dynamicText.classList.remove("stop-blinking");
         if (!isDeleting) {
           wordIndex = (wordIndex + 1) % words.length;
+          setTimeout(typeText, 1200);
+        } else {
+          setTimeout(typeText, 500);
         }
-        setTimeout(typeText, 1200);
       }
     }
     
@@ -123,4 +125,41 @@ document.addEventListener("DOMContentLoaded", function () {
       e.target.style.transform = 'translateY(0)';
     });
   });
+
+  
+  const stats = document.querySelectorAll('.stat-number');
+  
+  const observerOptions = {
+    threshold: 0.5
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = parseInt(entry.target.getAttribute('data-target'));
+        animateCount(entry.target, target);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  stats.forEach(stat => observer.observe(stat));
+
+  function animateCount(element, target) {
+    let current = 0;
+    const duration = 1000; 
+    const step = target / (duration / 16); 
+
+    function update() {
+      current += step;
+      if (current < target) {
+        element.textContent = Math.floor(current);
+        requestAnimationFrame(update);
+      } else {
+        element.textContent = target;
+      }
+    }
+
+    update();
+  }
 });
