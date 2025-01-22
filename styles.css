@@ -853,40 +853,90 @@ html, body {
 }
 
 .skill-card {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 20px;
   padding: 2rem;
   transition: all 0.4s ease;
   backdrop-filter: blur(10px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
 }
 
-.skill-card:hover {
-  background: rgba(255,255,255,0.07);
-  transform: translateY(-10px);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+.about-info .skill-card {
+  flex: 1;
+  min-width: calc(50% - 1rem);
+  background: rgba(18, 18, 18, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2rem;
 }
 
-.skill-icon {
+.about-info .skill-card:hover {
+  transform: translateY(-5px);
+  background: rgba(30, 30, 30, 0.4);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.about-info .skill-icon {
   font-size: 2.5rem;
   color: #ffffff;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 10px rgba(255,255,255,0.3);
+  margin-bottom: 0.5rem;
 }
 
-.skill-title {
+.about-info .skill-title {
   color: white;
   font-size: 1.3rem;
   font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.about-info .skill-description {
+  color: #808080;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.skill-card i {
+  font-size: 2.5rem;
+  color: #ffffff;
   margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.skill-card span {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
   letter-spacing: 1px;
 }
 
-.skill-description {
+.skill-card p {
   color: #a0a0a0;
   font-size: 0.95rem;
   line-height: 1.7;
+}
+
+.skill-card.html:hover {
+  background: rgba(228, 77, 38, 0.08);
+}
+
+.skill-card.css:hover {
+  background: rgba(38, 77, 228, 0.08);
+}
+
+.skill-card.javascript:hover {
+  background: rgba(247, 223, 30, 0.08);
+}
+
+.skill-card.react:hover {
+  background: rgba(97, 218, 251, 0.08);
+}
+
+.skill-card.nodejs:hover {
+  background: rgba(51, 153, 51, 0.08);
 }
 
 .stats-container {
@@ -959,5 +1009,318 @@ html, body {
 
   .info-text {
     font-size: 1rem;
+  }
+
+  .skill-card {
+    min-width: 200px;
+    height: 180px;
+    padding: 1.5rem;
+  }
+  
+  .skill-card i {
+    font-size: 2rem;
+  }
+  
+  .skill-card span {
+    font-size: 1.1rem;
+  }
+  
+  .skill-card p {
+    font-size: 0.9rem;
+  }
+
+  .about-info .skill-card {
+    min-width: 100%;
+    padding: 1.5rem;
+  }
+  
+  .about-info .skill-icon {
+    font-size: 2rem;
+  }
+  
+  .about-info .skill-title {
+    font-size: 1.1rem;
+  }
+  
+  .about-info .skill-description {
+    font-size: 0.9rem;
+  }
+}
+
+
+#skills {
+  padding: 15vh 8vw;
+  background: linear-gradient(135deg, #000000, #111111, #000000);
+  position: relative;
+  overflow: hidden;
+}
+
+
+.glass-bg {
+  position: absolute;
+  border-radius: 50%;
+  background: linear-gradient(45deg, rgba(255,255,255,0.02), rgba(255,255,255,0.04));
+  filter: blur(80px);
+}
+
+.glass-1 {
+  width: 600px;
+  height: 600px;
+  top: -150px;
+  left: -150px;
+  animation: floatAnimation 8s infinite ease-in-out;
+}
+
+.glass-2 {
+  width: 500px;
+  height: 500px;
+  bottom: -100px;
+  right: -100px;
+  animation: floatAnimation 8s infinite ease-in-out reverse;
+}
+
+@keyframes floatAnimation {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(30px, 30px); }
+}
+
+
+.skills-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 60px 0;
+  z-index: 1;
+}
+
+.skills-track {
+  display: flex;
+  animation: scroll 35s linear infinite;
+  gap: 30px;
+  padding: 20px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-200px * 5 - 30px * 5)); }
+}
+
+
+.skill-card {
+  min-width: 200px;
+  height: 200px;
+  background: rgba(128, 128, 128, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(128, 128, 128, 0.1);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  padding: 50px;
+}
+
+.skill-card i {
+  font-size: 3.5rem;
+  color: #808080;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80px;
+  height: 80px;
+}
+
+.skill-card span {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+
+.skill-card:hover {
+  transform: translateY(-10px);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.skill-card.html:hover {
+  background: rgba(228, 77, 38, 0.1);
+}
+
+.skill-card.css:hover {
+  background: rgba(38, 77, 228, 0.1);
+}
+
+.skill-card.javascript:hover {
+  background: rgba(247, 223, 30, 0.1);
+}
+
+.skill-card.react:hover {
+  background: rgba(97, 218, 251, 0.1);
+}
+
+.skill-card.nodejs:hover {
+  background: rgba(51, 153, 51, 0.1);
+}
+
+
+.skill-card.html:hover i { color: #E44D26; }
+.skill-card.css:hover i { color: #264DE4; }
+.skill-card.javascript:hover i { color: #F7DF1E; }
+.skill-card.react:hover i { color: #61DAFB; }
+.skill-card.nodejs:hover i { color: #339933; }
+
+
+
+.skills-track:hover {
+  animation-play-state: paused;
+}
+
+
+#skills .skills-header {
+  text-align: center;
+  margin-bottom: 8vh;
+  position: relative;
+  z-index: 2;
+}
+
+#skills .skills-subtitle {
+  color: #808080;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  animation: skillsFadeIn 0.5s ease forwards;
+}
+
+#skills .skills-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  background: linear-gradient(45deg, #ffffff, #e0e0e0);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 2rem;
+  position: relative;
+  text-shadow: 0 2px 15px rgba(255,255,255,0.2);
+  animation: skillsFadeIn 0.5s ease forwards 0.2s;
+}
+
+#skills .skills-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 150px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+}
+
+#skills .skills-description {
+  max-width: 800px;
+  margin: 0 auto;
+  color: #a0a0a0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 4rem;
+  animation: skillsFadeIn 0.5s ease forwards 0.4s;
+  opacity: 0;
+}
+
+@keyframes skillsFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  #skills .skills-title {
+    font-size: 3rem;
+  }
+  
+  #skills .skills-subtitle {
+    font-size: 1rem;
+  }
+  
+  #skills .skills-description {
+    font-size: 1rem;
+    padding: 0 20px;
+  }
+}
+
+
+.about-info .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.about-info .skill-card {
+  background: rgba(18, 18, 18, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 48px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 280px;
+  justify-content: center;
+}
+
+.about-info .skill-icon {
+  font-size: 3rem;
+  color: #ffffff;
+  margin-bottom: 24px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+}
+
+.about-info .skill-title {
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 16px;
+  width: 100%;
+  line-height: 1.2;
+}
+
+.about-info .skill-description {
+  color: #808080;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.about-info .skill-card:hover {
+  background: rgba(22, 22, 22, 0.95);
+}
+
+@media (max-width: 768px) {
+  .about-info .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 20px;
+  }
+  
+  .about-info .skill-card {
+    padding: 40px 24px;
+    min-height: 240px;
   }
 }
